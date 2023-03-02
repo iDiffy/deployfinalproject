@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF6E5;
+        }
+        
+        h1 {
+            color: #4F3A2D;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        form {
+            background-color: #F5DEB3;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 30px;
+        }
+        
+        label {
+            display: block;
+            font-size: 24px;
+            color: #4F3A2D;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        input[type="submit"] {
+            background-color: #4F3A2D;
+            border: none;
+            border-radius: 5px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px 20px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #7D5E3C;
+        }
+        
+        button {
+            background-color: #ac6336;
+            border: none;
+            border-radius: 5px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px 20px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        button:hover {
+            background-color: #7D5E3C;
+        }
+    </style>
+</head>
+<body>
+    <h1>SIGN UP</h1>
+    
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}    
+        <label for="cusphone">Customer Phone:</label>
+        <input type="text" id="cusphone" name="cusphone">
+        
+        <label for="cusname">Name:</label>
+        <input type="text" id="cusname" name="cusname">
+        
+        <label for="cusemail">Email:</label>
+        <input type="email" id="cusemail" name="cusemail">
+        
+        <label for="customerpassword">Password:</label>
+        <input type="password" id="customerpassword" name="customerpassword">
+        
+        <input type="submit" value="SAVE">
+    </form>
+    
+    <button><a href="{% url 'index' %}">BACK</a></button>
+</body>
+</html>

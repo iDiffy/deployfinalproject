@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Menu</title>
+
+    <style>
+        /* Global styles */
+        body {
+            background-color: #F6F4E6;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        h1 {
+            color: #DB4437;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333333;
+            background-color: #F2F2F2;
+        }
+
+        input[type="submit"] {
+            background-color: #DB4437;
+            color: #FFFFFF;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #C62828;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>WELCOME TO BIG CUBE</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="menucode">Menu Code:</label>
+        <input type="text", name="menucode" id="menucode">
+        <label for="menuname">Menu Name:</label>
+        <input type="text", name="menuname" id="menuname">
+        <label for="menuprice">Menu Price:</label>
+        <input type="text", name="menuprice" id="menuprice">
+        <input type="submit" value="SAVE">
+    </form>
+
+    <div class="message">{{ message }}</div>
+
+    <button>
+        <span class="button_top"><a href="{% url 'home' %}">HOME</a></span>
+    </button>
+
+</body>
+</html>

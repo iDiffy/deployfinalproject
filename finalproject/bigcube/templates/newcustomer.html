@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Customer</title>
+
+    <style>
+        body {
+            background-color: #F7E3D3;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            color: #C70039;
+            font-size: 36px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #8E5A46;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 400px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #ff9b4a;
+            color: #8E5A46;
+        }
+
+        input[type="submit"] {
+            background-color: #C70039;
+            color: #F7E3D3;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8E5A46;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            background-color: #C70039;
+            color: #F7E3D3;
+            padding: 14px 20px;
+            margin-top: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background-color: #8E5A46;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>WELCOME TO BIG CUBE</h1>
+    <p>ENTER NEW CUSTOMER</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        Phone:
+        <input type="text", name="cphone">
+        <br><br>
+        Name:
+        <input type="text", name="cname">
+        <br><br>
+        Email:
+        <input type="text", name="cemail">
+        <br><br>
+        Menu Code:
+        <select name="cmenu">
+            {% for value in allmenu %}
+            <option value="{{value.menucode}}">{{value.menucode}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <input type="submit" value="SAVE">
+    </form>
+
+    <br><br><br>
+    {{message}}
+    <br><br><br>
+
+    <button>
+        <span class="button_top"><a href = "{% url 'home' %}">HOME</a></span>
+    </button>
+
+</body>
+</html>

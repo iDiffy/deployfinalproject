@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATE MENU</title>
+
+    <style>
+        body{
+            background-color: #fff9e9;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        h1{
+            color: #8c3c3c;
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        input[type="text"]{
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+            width: 20rem;
+        }
+
+        input[type="submit"]{
+            background-color: #8c3c3c;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        input[type="submit"]:hover{
+            background-color: #b26a6a;
+        }
+
+        a{
+            color: #8c3c3c;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            display: block;
+            text-align: center;
+        }
+
+        a:hover{
+            color: #b26a6a;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO BIG CUBE</h1>
+    <strong>UPDATE MENU</strong><br><br>
+
+    <form action="saveupdatemenu/{{data.menucode}}" method="post">
+        {% csrf_token %}
+        Menu Code : <input type="text", name="menucode" value="{{data.menucode}}" disabled="false"> <br><br>
+        Menu Name : <input type="text", name="menuname" value="{{data.menuname}}"> <br><br>
+        Menu Price : <input type="text", name="menuprice" value="{{data.menuprice}}"> <br><br>
+        <input type="submit" value="SAVE">
+    </form>
+
+    <br><br><br>
+
+    <a href="{% url 'menu' %}">BACK</a> 
+</body>
+</html>

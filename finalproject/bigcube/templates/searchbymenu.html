@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by Menu</title>
+</head>
+<style>
+    /* Header styles */
+h1 {
+  font-family: "Abril Fatface", cursive;
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #553005;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+select {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #f8f1e8;
+}
+
+input[type="submit"] {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #553005;
+  color: #f8f1e8;
+  cursor: pointer;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  margin: 2rem auto;
+}
+
+tr:first-child {
+  background-color: #f8f1e8;
+  font-weight: bold;
+}
+
+td {
+  padding: 0.5rem;
+  border: 1px solid #553005;
+  text-align: center;
+}
+
+/* Button styles */
+.button_top {
+  background-color: #f8f1e8;
+  color: #553005;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button_top:hover {
+  background-color: #553005;
+  color: #f8f1e8;
+}
+
+</style>
+
+<body>
+
+    <h1>WELCOME TO BIG CUBE</h1>
+    <strong>SEARCH BY MENU</strong> <br><br>
+
+    <form action="" method="get">
+        MENU
+        <select name="mcodevar"> <!--ni untuk reference nanti dalam views so variable bebas / nanti lepas fetch data, display kat bawah -->
+            <option value="">SELECT ONE</option>
+            {% for value in allmenu %}
+                <option value="{{value.menucode}}">{{value.menucode}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="SEARCH">
+    </form> <br>
+    
+    {% if mcodevar != None %} <!-- why 'mcodevar' takde curly braces? '{}' - sebab taknak display-->
+        {% if numcust != 0 %}
+        <strong>LIST OF {{mcodevar}} CUSTOMER</strong> <br> 
+        <table> 
+            <tr>
+                <td>Phone</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Menu</td>
+            </tr>
+            {% for value in data %} <!--'data' tu refer kepada KEY dalam dict. bukan value. sebab dalam html refer kepada key not value-->
+                <tr>
+                    <td>{{value.cusphone}}</td>
+                    <td>{{value.cusname}}</td>
+                    <td>{{value.cusemail}}</td>
+                    <td>{{value.menucode}}</td> <!--'menucode' sebab dalam sql table camtu (utk cantikkan display)-->
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <strong>CUSTOMER {{mcodevar}} NOT FOUND</strong>
+        {% endif %}
+    {% endif %}
+
+
+    <br><br><br>
+    <button>
+        <span class="button_top"><a href = "{% url 'home' %}">HOME</a></span>
+    </button>
+
+</body>
+
+</html>

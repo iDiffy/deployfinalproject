@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <style>
+        body {
+            background-color: #F5E7D8;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #874B27;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            padding: 10px 0;
+            margin-left: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #874B27;
+            position: relative;
+        }
+        
+        li::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 15px;
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: #874B27;
+        }
+        
+        li ul li::before {
+            background-color: #F5E7D8;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ff6200;
+        }
+        
+        a:hover {
+            color: #AF6E4D;
+        }
+        
+        ol li {
+            font-weight: normal;
+            margin-left: 30px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>WELCOME TO BIG CUBE</h1>
+    <ul>
+        <li>MENU</li>
+            <ul>
+                <li><a href = "{% url 'menu' %}">Menu</a></li>
+                <li><a href = "{% url 'searchmenu' %}">Search Menu</a></li>
+            </ul>
+        <li>CUSTOMER</li>
+            <ul>
+                <li><a href = "{% url 'newcustomer' %}">New Customer</a></li>
+                <li>Search</li>
+                <ol>
+                    <li>Customer</li>
+                    <li><a href = "{% url 'searchbymenu' %}">Menu</a></li>
+                </ol>
+            </ul>
+    </ul>
+
+    <a href = "{% url 'index' %}">LOG OUT</a>
+    
+</body>
+</html>

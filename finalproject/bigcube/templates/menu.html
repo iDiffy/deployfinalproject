@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <style>
+    body {
+  background-color: #fff2e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: #4d4d4d;
+  text-align: center;
+  margin-top: 50px;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid #4d4d4d;
+  width: 80%;
+}
+
+td, th {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #4d4d4d;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8c8c8c;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ff6600;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff8533;
+  cursor: pointer;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <h1>WELCOME TO BIG CUBE</h1>
+    <strong>MENU</strong> <br><br>
+
+    <table>
+        <tr>
+            <td><strong>MENU CODE</strong></td>
+            <td><strong>MENU NAME</strong></td>
+            <td><strong>MENU PRICE</strong></td>
+        </tr>
+        {% for data in allmenu %}
+        <tr>
+            <td>{{data.menucode}}</td>
+            <td>{{data.menuname}}</td>
+            <td>{{data.menuprice}}</td>
+            <td><a href="updatemenu/{{data.menucode}}">UPDATE</a></td>
+            <td><a href="deletemenu/{{data.menucode}}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <br><br>
+    <a href = "{% url 'newmenu' %}">New Menu</a> <br><br>
+
+    <button>
+        <span class="button_top"><a href = "{% url 'home' %}">HOME</a></span>
+    </button>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEARCH MENU</title>
+
+    <style>
+        body {
+  background-color: #f9e6d2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #333333;
+}
+
+h1 {
+  color: #613b1f;
+  font-size: 48px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+strong {
+  font-size: 24px;
+  color: #613b1f;
+}
+
+form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+input[type="text"] {
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  width: 200px;
+  background-color: #f3d3bd;
+  color: #613b1f;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input[type="submit"] {
+  border: none;
+  border-radius: 30px;
+  padding: 10px 30px;
+  background-color: #613b1f;
+  color: #f9e6d2;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+p {
+  margin: 20px 0;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button_top {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: #ff8f3f;
+  color: #f9e6d2;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.button_top:hover {
+  background-color: #f9e6d2;
+  color: #ff8f3f;
+}
+
+strong:first-of-type {
+  margin-top: 40px;
+  display: block;
+}
+
+strong:not(:first-of-type) {
+  margin-top: 20px;
+  display: block;
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME TO BIG CUBE</h1>
+    <strong>SEARCH MENU</strong> <br><br>
+
+    <form action="" method="get">
+        Enter Menu Code: <input type="text" name="mmenucode">
+        <input type="submit" value="SEARCH">
+    </form>
+
+    <p>
+        {% for value in data %}
+            <strong>menu code</strong> : {{value.menucode}} <br>
+            <strong>menu name</strong> : {{value.menuname}} <br>
+            <strong>menu price</strong> : {{value.menuprice}} <br>
+        {% endfor %}
+    </p>
+    <br>
+    {{msg}}
+
+    <button>
+        <span class="button_top"><a href = "{% url 'home' %}">HOME</a></span>
+    </button>
+</body>
+</html>

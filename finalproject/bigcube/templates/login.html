@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Log In</title>
+    <style>
+        body {
+            background-color: #F5DEB3;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #404040;
+        }
+        h1 {
+            font-size: 36px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        form {
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.25);
+            padding: 20px;
+            margin-top: 50px;
+            max-width: 500px;
+        }
+        input[type="text"], input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #D3D3D3;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            background-color: #404040;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #5E5E5E;
+        }
+        button i.material-icons {
+            font-size: 16px;
+            margin-left: 5px;
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+        button:focus {
+            outline: none;
+        }
+        a {
+            color: #404040;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+        }
+        a:hover {
+            color: #5E5E5E;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>LOGIN</h1> <br><br>
+        
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}    
+            <label for="cusphone">Customer Phone:</label>
+            <input type="text" id="cusphone" name="cusphone">
+            <br><br>
+            <label for="customerpassword">Password:</label>
+            <input type="password" id="customerpassword" name="customerpassword">
+            <br><br>
+            <button type="submit">Submit &nbsp;<i class="material-icons">send</i></button>
+        </form>
+        <br><br>
+        <a href="{% url 'index' %}">Back</a>
+    </center>
+</body>
+</html>
